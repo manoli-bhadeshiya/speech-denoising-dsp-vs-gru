@@ -60,6 +60,7 @@ The next figure shows the remaining error (output minus clean reference) for eac
 
 ![Training and validation loss](loss_curve.png)
 
+After about 15 epochs, validation loss stays slightly above training loss and flattens while training keeps going down little.
 The loss converges after about 20 epochs. Train and validation loss stay close together, so there is no sign of overfitting. The best checkpoint is from epoch 28 (validation loss 0.0592).
 
 ## Next steps
