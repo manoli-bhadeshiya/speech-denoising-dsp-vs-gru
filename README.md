@@ -29,11 +29,11 @@ This is clip `p257_199`, where the noise is louder than the speech (input SI-SDR
 | Wiener filter | 1.99 | 0.54 | 15.80 |
 | **GRU model** | **2.33** | **0.60** | **17.36** |
 
-![Spectrograms of the hardest test clip](figures/spectrograms_worst_case.png)
+![Spectrograms of the hardest test clip](spectrograms_worst_case.png)
 
 The next figure shows the remaining error (output minus clean reference) for each method. Darker means a better result.
 
-![Remaining error per method](figures/error_spectrograms.png)
+![Remaining error per method](error_spectrograms.png)
 
 ## Findings
 
@@ -58,7 +58,7 @@ The next figure shows the remaining error (output minus clean reference) for eac
 
 ### Training curve
 
-![Training and validation loss](figures/loss_curve.png)
+![Training and validation loss](loss_curve.png)
 
 The loss converges after about 20 epochs. Train and validation loss stay close together, so there is no sign of overfitting. The best checkpoint is from epoch 28 (validation loss 0.0592).
 
@@ -73,8 +73,8 @@ The loss converges after about 20 epochs. Train and validation loss stay close t
 
 ```bash
 pip install -r requirements.txt
-python src/train.py --noisy DATA/noisy_trainset_28spk_wav --clean DATA/clean_trainset_28spk_wav --epochs 30 --out checkpoints
-python src/evaluate.py --noisy DATA/noisy_testset_wav --clean DATA/clean_testset_wav --ckpt checkpoints/best.pt --out results
+python train.py --noisy DATA/noisy_trainset_28spk_wav --clean DATA/clean_trainset_28spk_wav --epochs 30 --out checkpoints
+python evaluate.py --noisy DATA/noisy_testset_wav --clean DATA/clean_testset_wav --ckpt checkpoints/best.pt --out results
 ```
 
 I trained and evaluated on Google Colab (free T4 GPU).
