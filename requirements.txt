@@ -1,0 +1,8 @@
+torch
+numpy
+scipy
+soundfile
+pandas
+tabulate
+pesq
+pystoi
